@@ -4,7 +4,8 @@ BEATS?=auditbeat filebeat heartbeat journalbeat metricbeat packetbeat winlogbeat
 PROJECTS=libbeat $(BEATS)
 PROJECTS_ENV=libbeat filebeat metricbeat
 PYTHON_ENV?=$(BUILD_DIR)/python-env
-VIRTUALENV_PARAMS?=
+PYTHON_EXE?=python2.7
+VIRTUALENV_PARAMS?="--python=${PYTHON_EXE}"
 FIND=find . -type f -not -path "*/vendor/*" -not -path "*/build/*" -not -path "*/.git/*"
 GOLINT=golint
 GOLINT_REPO=golang.org/x/lint/golint
