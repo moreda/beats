@@ -171,6 +171,8 @@ func PythonVirtualenv() (string, error) {
 	var args []string
 	if pythonExe := os.Getenv("PYTHON_EXE"); pythonExe != "" {
 		args = append(args, "-p", pythonExe)
+	} else {
+		args = append(args, "-p", "python2.7")
 	}
 	args = append(args, ve)
 
