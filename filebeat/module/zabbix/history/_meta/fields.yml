@@ -1,0 +1,57 @@
+- key: history
+  type: "group"
+  description: >
+    Fields exported by the history fileset
+  fields:
+    - name: name
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: clock
+      type: long
+    - name: ns
+      type: long
+    - name: timestamp
+      type: long
+      required: false
+    - name: source
+      type: keyword
+      required: false
+    - name: severity
+      type: byte
+      required: false
+    - name: eventid
+      type: long
+      required: false
+    - name: value.keyword
+      type: keyword
+    - name: value.text
+      type: text
+    - name: value.long
+      type: long
+    - name: value.double
+      type: double
+    - name: host
+      type: group
+      fields:
+        - name: host
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+        - name: name
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+    - name: groups
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: applications
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword

@@ -1,0 +1,7 @@
+dashboards:
+- id: Filebeat-zabbix-history-Dashboard
+  file: Filebeat-zabbix-history.json
+- id: Filebeat-zabbix-problems-Dashboard
+  file: Filebeat-zabbix-problems.json
+- id: Filebeat-zabbix-trends-Dashboard
+  file: Filebeat-zabbix-trends.json

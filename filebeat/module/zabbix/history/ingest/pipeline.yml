@@ -1,0 +1,33 @@
+---
+description: Pipeline for parsing zabbix history logs
+processors:
+  - json:
+      field: message
+      target_field: zabbix.history
+  - date:
+      field: zabbix.history.clock
+      target_field: "@timestamp"
+      formats:
+        - UNIX
+      ignore_failure: true
+  - rename:
+      field: zabbix.history.value
+      target_field: zabbix.history.value.text
+  - set:
+      field: zabbix.history.value.keyword
+      value: "{{ zabbix.history.value.text }}"
+  - convert:
+      field: zabbix.history.value.text
+      target_field: zabbix.history.value.double
+      type: double
+      ignore_failure: true
+  - convert:
+      field: zabbix.history.value.text
+      target_field: zabbix.history.value.long
+      type: long
+      ignore_failure: true
+on_failure:
+- set:
+    field: error.message
+    value: "{{ _ingest.on_failure_message }}"
+...

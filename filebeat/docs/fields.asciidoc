@@ -59,6 +59,7 @@ grouped in the following categories:
 * <<exported-fields-suricata>>
 * <<exported-fields-system>>
 * <<exported-fields-traefik>>
+* <<exported-fields-zabbix>>
 * <<exported-fields-zeek>>
 
 --
@@ -21231,6 +21232,19 @@ type: alias
 alias to: source.geo.region_iso_code
 
 --
+
+[[exported-fields-zabbix]]
+== zabbix fields
+
+Fields exported by the `zabbix` module
+
+
+
+[float]
+=== zabbix
+
+
+
 
 [[exported-fields-zeek]]
 == Zeek fields

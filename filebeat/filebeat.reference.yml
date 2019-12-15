@@ -374,6 +374,16 @@ filebeat.modules:
     # can be added under this section.
     #input:
 
+#-------------------------------- Zabbix Module --------------------------------
+- module: zabbix
+  # All logs
+  history:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
 
 #=========================== Filebeat inputs =============================
 
