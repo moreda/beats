@@ -1,0 +1,20 @@
+---
+description: Pipeline for parsing zabbix trends logs
+processors:
+  - rename:
+      field: "@timestamp"
+      target_field: event.created
+  - rename:
+      field: json
+      target_field: zabbix.trends
+  - date:
+      field: zabbix.trends.clock
+      target_field: "@timestamp"
+      formats:
+        - UNIX
+      ignore_failure: true
+on_failure:
+- set:
+    field: error.message
+    value: "{{ _ingest.on_failure_message }}"
+...

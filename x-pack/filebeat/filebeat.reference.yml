@@ -632,6 +632,16 @@ filebeat.modules:
     # can be added under this section.
     #input:
 
+#-------------------------------- Zabbix Module --------------------------------
+- module: zabbix
+  # All logs
+  {fileset}:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
 #--------------------------------- Zeek Module ---------------------------------
 - module: zeek
   capture_loss:

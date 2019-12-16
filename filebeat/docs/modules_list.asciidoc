@@ -38,6 +38,7 @@ This file is generated! See scripts/docs_collector.py
   * <<filebeat-module-suricata>>
   * <<filebeat-module-system>>
   * <<filebeat-module-traefik>>
+  * <<filebeat-module-zabbix>>
   * <<filebeat-module-zeek>>
 
 
@@ -79,4 +80,5 @@ include::modules/santa.asciidoc[]
 include::modules/suricata.asciidoc[]
 include::modules/system.asciidoc[]
 include::modules/traefik.asciidoc[]
+include::modules/zabbix.asciidoc[]
 include::modules/zeek.asciidoc[]

@@ -1,0 +1,82 @@
+- name: problems
+  type: group
+  description: >
+    Fields exported by the Zabbix problems fileset
+  fields:
+    - name: hosts
+      type: nested
+      description: >
+        List of hosts involved in the trigger expression; there should be at
+        least one element in array.
+    - name: hosts.host
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Host name.
+    - name: hosts.name
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Visible host name.
+    - name: groups
+      type: text
+      required: false
+      description: >
+        List of host groups of the item host; there should be at least one
+        element in array.
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: tags
+      type: nested
+      required: false
+      description: >
+        List of problem tags (can be empty).
+    - name: tags.tag
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Tag name.
+    - name: tags.value
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Tag value (can be empty).
+    - name: name
+      type: text
+      required: false
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Problem event name.
+    - name: clock
+      type: long
+      description: >
+        Number of seconds since Epoch to the moment when problem was detected
+        (integer part).
+    - name: ns
+      type: long
+      description: >
+        Number of nanoseconds to be added to clock to get a precise problem
+        detection time.
+    - name: eventid
+      type: long
+      description: >
+        Problem or recovery event ID.
+    - name: p_eventid
+      type: long
+      description: >
+        If this is a recovery event then this is the problem event ID.
+    - name: value
+      type: byte
+      description: >
+        1 if this is a problem event, 0 if this is a recovery event.

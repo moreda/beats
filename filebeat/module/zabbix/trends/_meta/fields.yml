@@ -1,0 +1,72 @@
+- name: trends
+  type: group
+  description: >
+    Fields exported by the Zabbix trends fileset
+  fields:
+    - name: host
+      type: group
+      description: >
+        Host name of the item host.
+      fields:
+        - name: host
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+          description: >
+            Host name.
+        - name: name
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+          description: >
+            Visible host name.
+    - name: groups
+      type: text
+      description: >
+        List of host groups of the item host; there should be at least one
+        element in array.
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: applications
+      type: text
+      required: false
+      description: >
+        List of the item applications; empty if there are none.
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: itemid
+      type: long
+      description: >
+        Item ID.
+    - name: name
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Visible item name.
+    - name: clock
+      type: long
+      description: >
+        Number of seconds since Epoch to the moment when value was collected
+        (integer part).
+    - name: count
+      type: long
+      description: >
+        Number of values collected for a given hour.
+    - name: min
+      type: double
+      description: >
+        Minimum item value for a given hour.
+    - name: avg
+      type: double
+      description: >
+        Average item value for a given hour.
+    - name: max
+      type: double
+      description: >
+        Maximum item value for a given hour.

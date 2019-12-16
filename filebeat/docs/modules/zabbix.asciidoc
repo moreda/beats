@@ -1,0 +1,88 @@
+////
+This file is generated! See scripts/docs_collector.py
+////
+
+[[filebeat-module-zabbix]]
+:modulename: zabbix
+:has-dashboards: false
+
+== Zabbix module
+
+The +{modulename}+ module collects and parses the real-time exporting of item
+values, trigger events and trends created by https://www.zabbix.com/[Zabbix].
+
+include::../include/what-happens.asciidoc[]
+
+[float]
+=== Compatibility
+
+The +{modulename}+ module was tested with export files from Zabbix versions 4.4.
+
+include::../include/running-modules.asciidoc[]
+
+include::../include/configuring-intro.asciidoc[]
+
+The following example shows how to set paths in the +modules.d/{modulename}.yml+
+file to override the default paths for logs:
+
+["source","yaml",subs="attributes"]
+-----
+- module: zabbix
+  history:
+    enabled: true
+    var.paths:
+      - "/var/lib/zabbix/history-*.ndjson"
+  problems:
+    enabled: true
+    var.paths:
+      - "/var/lib/zabbix/problems-*.ndjson"
+  trends:
+    enabled: true
+    var.paths:
+      - "/var/lib/zabbix/trends-*.ndjson"
+-----
+
+To specify the same settings at the command line, you use:
+
+["source","sh",subs="attributes"]
+-----
+-M "zabbix.history.var.paths=[/var/lib/zabbix/history-*.ndjson]" -M "zabbix.history.var.paths=[/var/lib/zabbix/problems-*.ndjson]" -M "zabbix.history.var.paths=[/var/lib/zabbix/trends-*.ndjson]"
+-----
+
+//set the fileset name used in the included example
+:fileset_ex: history
+
+include::../include/config-option-intro.asciidoc[]
+
+[float]
+==== `history` fileset settings
+
+include::../include/var-paths.asciidoc[]
+
+[float]
+==== `problems` fileset settings
+
+include::../include/var-paths.asciidoc[]
+
+[float]
+==== `trends` fileset settings
+
+include::../include/var-paths.asciidoc[]
+
+
+include::../include/timezone-support.asciidoc[]
+
+
+:has-dashboards!:
+
+:fileset_ex!:
+
+:modulename!:
+
+
+[float]
+=== Fields
+
+For a description of each field in the module, see the
+<<exported-fields-zabbix,exported fields>> section.
+

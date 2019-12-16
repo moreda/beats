@@ -1,0 +1,96 @@
+- name: history
+  type: group
+  description: >
+    Fields exported by the Zabbix history fileset
+  fields:
+    - name: host
+      type: group
+      description: >
+        Host name of the item host.
+      fields:
+        - name: host
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+          description: >
+            Host name.
+        - name: name
+          type: text
+          multi_fields:
+            - name: keyword
+              type: keyword
+          description: >
+            Visible host name.
+    - name: groups
+      type: text
+      description: >
+        List of host groups of the item host; there should be at least one
+        element in array.
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: applications
+      type: text
+      description: >
+        List of the item applications; empty if there are none.
+      multi_fields:
+        - name: keyword
+          type: keyword
+    - name: itemid
+      type: long
+      description: >
+        Item ID.
+    - name: name
+      type: text
+      multi_fields:
+        - name: keyword
+          type: keyword
+      description: >
+        Visible item name.
+    - name: clock
+      type: long
+      description: >
+        Number of seconds since Epoch to the moment when value was collected
+        (integer part).
+    - name: ns
+      type: long
+      description: >
+        Number of nanoseconds to be added to clock to get a precise value
+        collection time.
+    - name: timestamp
+      type: long
+      description: >
+        Log only. 0 if not available.
+      required: false
+    - name: source
+      type: keyword
+      description: >
+        Log only. Empty string if not available.
+      required: false
+    - name: severity
+      type: byte
+      description: >
+        Log only. 0 if not available.
+      required: false
+    - name: eventid
+      type: long
+      description: >
+        Log only. 0 if not available.
+      required: false
+    - name: value.keyword
+      type: keyword
+      description: >
+        Collected item value.
+    - name: value.text
+      type: text
+      description: >
+        Collected item value.
+    - name: value.long
+      type: long
+      description: >
+        Collected item value.
+    - name: value.double
+      type: double
+      description: >
+        Collected item value.

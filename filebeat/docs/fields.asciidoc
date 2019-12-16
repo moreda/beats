@@ -59,6 +59,7 @@ grouped in the following categories:
 * <<exported-fields-suricata>>
 * <<exported-fields-system>>
 * <<exported-fields-traefik>>
+* <<exported-fields-zabbix>>
 * <<exported-fields-zeek>>
 
 --
@@ -19617,6 +19618,583 @@ alias to: source.geo.city_name
 type: alias
 
 alias to: source.geo.region_iso_code
+
+--
+
+[[exported-fields-zabbix]]
+== zabbix fields
+
+Zabbix module
+
+
+
+[float]
+=== zabbix
+
+Fields exported by the zabbix module
+
+
+
+[float]
+=== history
+
+Fields exported by the Zabbix history fileset
+
+
+
+[float]
+=== host
+
+Host name of the item host.
+
+
+
+*`zabbix.history.host.host`*::
++
+--
+Host name.
+
+
+type: text
+
+--
+
+*`zabbix.history.host.host.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.history.host.name`*::
++
+--
+Visible host name.
+
+
+type: text
+
+--
+
+*`zabbix.history.host.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.history.groups`*::
++
+--
+List of host groups of the item host; there should be at least one element in array.
+
+
+type: text
+
+--
+
+*`zabbix.history.groups.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.history.applications`*::
++
+--
+List of the item applications; empty if there are none.
+
+
+type: text
+
+--
+
+*`zabbix.history.applications.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.history.itemid`*::
++
+--
+Item ID.
+
+
+type: long
+
+--
+
+*`zabbix.history.name`*::
++
+--
+Visible item name.
+
+
+type: text
+
+--
+
+*`zabbix.history.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.history.clock`*::
++
+--
+Number of seconds since Epoch to the moment when value was collected (integer part).
+
+
+type: long
+
+--
+
+*`zabbix.history.ns`*::
++
+--
+Number of nanoseconds to be added to clock to get a precise value collection time.
+
+
+type: long
+
+--
+
+*`zabbix.history.timestamp`*::
++
+--
+Log only. 0 if not available.
+
+
+type: long
+
+required: False
+
+--
+
+*`zabbix.history.source`*::
++
+--
+Log only. Empty string if not available.
+
+
+type: keyword
+
+required: False
+
+--
+
+*`zabbix.history.severity`*::
++
+--
+Log only. 0 if not available.
+
+
+type: byte
+
+required: False
+
+--
+
+*`zabbix.history.eventid`*::
++
+--
+Log only. 0 if not available.
+
+
+type: long
+
+required: False
+
+--
+
+*`zabbix.history.value.keyword`*::
++
+--
+Collected item value.
+
+
+type: keyword
+
+--
+
+*`zabbix.history.value.text`*::
++
+--
+Collected item value.
+
+
+type: text
+
+--
+
+*`zabbix.history.value.long`*::
++
+--
+Collected item value.
+
+
+type: long
+
+--
+
+*`zabbix.history.value.double`*::
++
+--
+Collected item value.
+
+
+type: double
+
+--
+
+[float]
+=== problems
+
+Fields exported by the Zabbix problems fileset
+
+
+
+*`zabbix.problems.hosts`*::
++
+--
+List of hosts involved in the trigger expression; there should be at least one element in array.
+
+
+type: nested
+
+--
+
+*`zabbix.problems.hosts.host`*::
++
+--
+Host name.
+
+
+type: text
+
+--
+
+*`zabbix.problems.hosts.host.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.hosts.name`*::
++
+--
+Visible host name.
+
+
+type: text
+
+--
+
+*`zabbix.problems.hosts.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.groups`*::
++
+--
+List of host groups of the item host; there should be at least one element in array.
+
+
+type: text
+
+required: False
+
+--
+
+*`zabbix.problems.groups.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.tags`*::
++
+--
+List of problem tags (can be empty).
+
+
+type: nested
+
+required: False
+
+--
+
+*`zabbix.problems.tags.tag`*::
++
+--
+Tag name.
+
+
+type: text
+
+--
+
+*`zabbix.problems.tags.tag.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.tags.value`*::
++
+--
+Tag value (can be empty).
+
+
+type: text
+
+--
+
+*`zabbix.problems.tags.value.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.name`*::
++
+--
+Problem event name.
+
+
+type: text
+
+required: False
+
+--
+
+*`zabbix.problems.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.problems.clock`*::
++
+--
+Number of seconds since Epoch to the moment when problem was detected (integer part).
+
+
+type: long
+
+--
+
+*`zabbix.problems.ns`*::
++
+--
+Number of nanoseconds to be added to clock to get a precise problem detection time.
+
+
+type: long
+
+--
+
+*`zabbix.problems.eventid`*::
++
+--
+Problem or recovery event ID.
+
+
+type: long
+
+--
+
+*`zabbix.problems.p_eventid`*::
++
+--
+If this is a recovery event then this is the problem event ID.
+
+
+type: long
+
+--
+
+*`zabbix.problems.value`*::
++
+--
+1 if this is a problem event, 0 if this is a recovery event.
+
+
+type: byte
+
+--
+
+[float]
+=== trends
+
+Fields exported by the Zabbix trends fileset
+
+
+
+[float]
+=== host
+
+Host name of the item host.
+
+
+
+*`zabbix.trends.host.host`*::
++
+--
+Host name.
+
+
+type: text
+
+--
+
+*`zabbix.trends.host.host.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.trends.host.name`*::
++
+--
+Visible host name.
+
+
+type: text
+
+--
+
+*`zabbix.trends.host.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.trends.groups`*::
++
+--
+List of host groups of the item host; there should be at least one element in array.
+
+
+type: text
+
+--
+
+*`zabbix.trends.groups.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.trends.applications`*::
++
+--
+List of the item applications; empty if there are none.
+
+
+type: text
+
+required: False
+
+--
+
+*`zabbix.trends.applications.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.trends.itemid`*::
++
+--
+Item ID.
+
+
+type: long
+
+--
+
+*`zabbix.trends.name`*::
++
+--
+Visible item name.
+
+
+type: text
+
+--
+
+*`zabbix.trends.name.keyword`*::
++
+--
+type: keyword
+
+--
+
+*`zabbix.trends.clock`*::
++
+--
+Number of seconds since Epoch to the moment when value was collected (integer part).
+
+
+type: long
+
+--
+
+*`zabbix.trends.count`*::
++
+--
+Number of values collected for a given hour.
+
+
+type: long
+
+--
+
+*`zabbix.trends.min`*::
++
+--
+Minimum item value for a given hour.
+
+
+type: double
+
+--
+
+*`zabbix.trends.avg`*::
++
+--
+Average item value for a given hour.
+
+
+type: double
+
+--
+
+*`zabbix.trends.max`*::
++
+--
+Maximum item value for a given hour.
+
+
+type: double
 
 --
 

@@ -374,6 +374,27 @@ filebeat.modules:
     # can be added under this section.
     #input:
 
+#-------------------------------- Zabbix Module --------------------------------
+- module: zabbix
+
+  history:
+    enabled: true
+    # Set custom paths for the history files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+  problems:
+    enabled: true
+    # Set custom paths for the problems files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+  trends:
+    enabled: true
+    # Set custom paths for the trends files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
 
 #=========================== Filebeat inputs =============================
 

@@ -1,0 +1,9 @@
+module_version: 1.0
+
+var:
+  - name: paths
+    default:
+      - /var/lib/zabbix/trends-*.ndjson
+
+ingest_pipeline: ingest/pipeline.yml
+input: config/trends.yml

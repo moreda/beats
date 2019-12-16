@@ -1,0 +1,22 @@
+# Module: zabbix
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/7.x/filebeat-module-zabbix.html
+
+- module: zabbix
+
+  history:
+    enabled: true
+    # Set custom paths for the history files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+  problems:
+    enabled: true
+    # Set custom paths for the problems files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+  trends:
+    enabled: true
+    # Set custom paths for the trends files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:

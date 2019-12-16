@@ -1,0 +1,10 @@
+- key: zabbix
+  title: "zabbix"
+  description: >
+    Zabbix module
+  fields:
+    - name: zabbix
+      type: group
+      description: >
+        Fields exported by the zabbix module
+      fields:
